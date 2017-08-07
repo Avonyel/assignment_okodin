@@ -10,9 +10,13 @@ module.exports = {
       },
       username: {
         type: Sequelize.STRING
+        allowNull: false,
+        unique: true
       },
       email: {
         type: Sequelize.STRING
+        allowNull: false,
+        unique: true
       },
       profile_id: {
         type: Sequelize.INTEGER
@@ -27,6 +31,10 @@ module.exports = {
         type: Sequelize.DATE,
         defaultValue: Sequelize.fn("NOW")
       }
+    }).then(() => {
+      return queryInterface.addIndex('Users', ['email'], {unique: true});
+    }).then(() => {
+      return queryInterface.addIndex('Users', ['username'], {unique: true});
     });
   },
   down: function(queryInterface, Sequelize) {
