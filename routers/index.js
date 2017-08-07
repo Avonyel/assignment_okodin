@@ -14,20 +14,25 @@ router.get("/", (req, res) => {
     res.render("index");
   }
 });
-/*move this to user router
-router.post('/users/new', (req, res)=>{
-
-})*/
 
 router.post("/", (req, res) => {
-  req.session.email = req.body.email;
-  req.session.username = req.body.username;
-
-  users
-    .find({ username: req.body.username, email: req.body.email })
-    .then(result => {
-      console.log(result);
-    });
+  User.find({
+    username: req.body.username,
+    email: req.body.email
+  }).then(result => {
+    if (result !== null) {
+      //render main page
+      req.session.email = req.body.email;
+      req.session.username = req.body.username;
+      res.redirect("/");
+    } else {
+      //go to create profile
+      //set temporary cookies for ease
+      req.cookie.email = req.body.email;
+      req.cookie.username = req.body.username;
+      res.redirect("/users/new");
+    }
+  });
 });
 
 module.exports = router;

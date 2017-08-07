@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const cookieSession = require("cookie-session");
 const exphbs = require("express-handlebars");
 const index = require("./routers/index");
+const usersRouter = require("./routers/users");
 
 //bodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,6 +29,7 @@ app.set("view engine", "handlebars");
 
 //signup route
 app.use("/", index);
+app.use("/users", users);
 
 //run the server
 var port = process.env.PORT || process.argv[2] || 3000;
