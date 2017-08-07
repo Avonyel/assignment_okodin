@@ -24,7 +24,7 @@ const hbs = exphbs.create({
   defaultLayout: "main"
 });
 app.engine("handlebars", hbs.engine);
-app.use("view-engine", "handlebars");
+app.set("view engine", "handlebars");
 
 //signup route
 app.use("/", index);
