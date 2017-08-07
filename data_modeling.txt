@@ -1,0 +1,40 @@
+User
+	id
+	username
+	email
+	profile_id
+
+Profile
+	id
+	about
+	talents
+	favorite_things
+	why
+	user_id
+	age
+	location_id
+	gender
+	relationship_status
+	education
+	kids
+	height
+	occupation
+
+Location
+	id
+	name
+	coordinate
+
+	about:text
+	talents:text
+	favorite_things:text
+	why:text
+	user_id:integer
+	age:integer
+	location_id:integer
+	gender:string
+	relationship_status:string
+	education
+	kids:integer
+	height:integer
+	occupation:string
