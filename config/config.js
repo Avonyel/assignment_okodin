@@ -2,8 +2,8 @@ let user = require("./stupidworkaround");
 
 module.exports = {
   development: {
-    username: user.name,
-    password: user.password,
+    username: "ericglover",
+    password: null,
     database: "okodin_development",
     host: "127.0.0.1",
     dialect: "postgres"

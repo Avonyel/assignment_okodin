@@ -25,16 +25,6 @@ Location
 	name
 	coordinate
 
-	about:text
-	talents:text
-	favorite_things:text
-	why:text
-	user_id:integer
-	age:integer
-	location_id:integer
-	gender:string
-	relationship_status:string
-	education
-	kids:integer
-	height:integer
-	occupation:string
+	sequelize model:create --name Location --attributes 'name:string coordinate:integer'
+
+	sequelize model:create --name Profile --attributes 'about:text talents:text favorite_things:text why:text user_id:integer age:integer location_id:integer gender:string relationship_status:string education:string kids:integer height:integer occupation:string'
