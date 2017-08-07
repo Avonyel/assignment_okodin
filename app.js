@@ -12,8 +12,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //Sessions
 app.use(
   cookieSession({
-    name: "session???",
-    //keys: ["I LOVE CATS"],
+    name: "session",
+    // keys: ["I LOVE CATS"]
     secret: "I LOVE CATS"
   })
 );

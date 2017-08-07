@@ -6,11 +6,16 @@ router.get("/", (req, res) => {
   username = req.session.username || "";
   if (username) {
     //send them to the login ??
+    // res.send(`username = ${username}`);
+    res.render("signup");
   } else {
     //if not signed up
     res.render("signup");
   }
-  //res.end();
 });
+/*move this to user router
+router.post('/users/new', (req, res)=>{
+
+})*/
 
 module.exports = router;
