@@ -17,8 +17,10 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
   User.find({
-    username: req.body.username,
-    email: req.body.email
+    where: {
+      username: req.body.username,
+      email: req.body.email
+    }
   }).then(result => {
     if (result !== null) {
       //render main page
@@ -28,11 +30,18 @@ router.post("/", (req, res) => {
     } else {
       //go to create profile
       //set temporary cookies for ease
-      req.cookie.email = req.body.email;
-      req.cookie.username = req.body.username;
+      res.cookie("email", req.body.email);
+      res.cookie("username", req.body.username);
+      // req.cookie.email = req.body.email;
+      // req.cookie.username = req.body.username;
       res.redirect("/users/new");
     }
   });
 });
+
+// favorites = req.cookies.favorites || [];
+//   res.cookie("favorites", favorites.push(id));
+//   res.redirect("/");
+// });
 
 module.exports = router;
